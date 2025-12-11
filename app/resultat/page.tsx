@@ -156,9 +156,9 @@ export default function ResultatPage() {
         )}
 
         {/* Potential Issues */}
-        {result.potential_issues && result.potential_issues.length > 0 && (
-          <div className="bg-white border border-gray-200 rounded-lg p-6 fade-in delay-2">
-            <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Potential Issues</h2>
+        <div className="bg-white border border-gray-200 rounded-lg p-6 fade-in delay-2">
+          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-3">Potential Issues</h2>
+          {result.potential_issues && result.potential_issues.length > 0 ? (
             <div className="space-y-3">
               {result.potential_issues.map((issue, i) => (
                 <div key={i} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
@@ -172,8 +172,13 @@ export default function ResultatPage() {
                 </div>
               ))}
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
+              <span className="px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800">✓</span>
+              <p className="text-green-800">No issues detected</p>
+            </div>
+          )}
+        </div>
 
         {/* Functions */}
         {result.functions && result.functions.length > 0 && (
